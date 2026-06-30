@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-yellow: #D4A017;
+  --color-yellow-light: #E8B820;
+  --color-yellow-dark: #A87D0F;
+  --color-yellow-muted: rgba(212, 160, 23, 0.12);
+  --color-yellow-border: rgba(212, 160, 23, 0.22);
+
+  /* Dark Palette */
+  --color-dark: #0F0F0F;
+  --color-dark-card: #1A1A1A;
+  --color-dark-lighter: #222222;
+  --color-dark-border: #2A2A2A;
+
+  /* Gray */
+  --color-gray-muted: #6B7280;
+  --color-gray-light: #9CA3AF;
+  --color-gray-subtle: #4B5563;
+
+  /* Fonts */
+  /* IMPORTANT: reference the literal "Barlow Condensed" face (Latin-only) — NOT
+     var(--font-barlow), which next/font bundles with an Arial fallback. Arial has
+     Cyrillic and would swallow Macedonian letters before they reach Roboto. With
+     the literal face first, Latin & numbers use Barlow, and Cyrillic glyphs Barlow
+     lacks fall through (per-glyph) to Roboto Condensed. */
+  --font-heading: "Barlow Condensed", var(--font-cyr), "Roboto Condensed", sans-serif;
+  --font-body: var(--font-outfit), "Outfit", sans-serif;
+}
+
+/* NOTE: do NOT reset margin/padding on * here.
+   This file is outside Tailwind's @layer, so an unlayered `* { margin:0 }`
+   would override every layered utility (mx-auto, px-4, mb-5 …) and break
+   centering + spacing site-wide. Tailwind's preflight already resets these
+   inside @layer base. */
+
+html {
+  overflow-x: clip;
+}
+
+body {
+  background-color: #0F0F0F;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.01em;
+}
+
+/* Text selection — brand yellow highlight with black letters (replaces the
+   default blue). Note: the browser paints ::selection instantly, so CSS
+   transition/animation don't apply to it. */
+::selection {
+  background: #D4A017;
+  color: #0F0F0F;
+  text-shadow: none;
+}
+::-moz-selection {
+  background: #D4A017;
+  color: #0F0F0F;
+  text-shadow: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0F0F0F; }
+::-webkit-scrollbar-thumb { background: #D4A017; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #E8B820; }
+
+/* Glass pill header */
+.glass-pill {
+  background: rgba(212, 160, 23, 0.06);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(212, 160, 23, 0.16);
+}
+.glass-pill-scrolled {
+  background: rgba(15, 15, 15, 0.90);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(212, 160, 23, 0.28);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #D4A017, #E8B820);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Car card hover */
+.car-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.car-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  border-color: rgba(212, 160, 23, 0.4);
+}
+
+/* ---- Layout helpers ---- */
+.section-padding {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* ---- Buttons (rounded rectangles, per brief) ---- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #d4a017;
+  color: #0f0f0f;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.btn-primary:hover {
+  background: #e8b820;
+  transform: translateY(-2px);
+}
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.btn-outline:hover {
+  background: rgba(212, 160, 23, 0.12);
+  border-color: #d4a017;
+  color: #d4a017;
+}
+
+/* ---- Section label (kicker) ---- */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4a017;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ── Bilingual label sizing ────────────────────────────────────────────────
+   Latin/English text renders in Barlow Condensed, which is much more condensed
+   (~18% narrower for the same string) than the Roboto Condensed that Macedonian
+   Cyrillic falls back to. So the small uppercase labels — section kickers and
+   the header nav — read as "smaller" in English. Nudge only those English
+   labels up so the two languages feel matched. Scoped to html[lang="en"], so
+   the Macedonian rendering is left exactly as-is. The LanguageProvider sets
+   <html lang> on switch, so these rules toggle automatically. */
+/* Latin (Barlow Condensed) glyphs are ~23% narrower than the Roboto Condensed
+   that Cyrillic falls back to, so the same uppercase label reads as smaller AND
+   more cramped in English. We compensate on two axes: a small size bump *and*
+   extra letter-spacing, so the English label fills the same horizontal footprint
+   as the Macedonian one (measured: both ≈138px wide for the stock kicker). */
+html[lang="en"] .kicker { font-size: 0.9rem; letter-spacing: 0.3em; }
+html[lang="en"] header nav a,
+html[lang="en"] header nav button { font-size: 0.96rem; }
+html[lang="en"] .text-yellow.uppercase.tracking-widest:not(.text-xs),
+html[lang="en"] .text-yellow.uppercase.tracking-\[0\.2em\]:not(.text-\[10px\]) { font-size: 0.97rem; letter-spacing: 0.26em; }
+html[lang="en"] .text-yellow.uppercase.tracking-widest.text-xs { font-size: 0.84rem; letter-spacing: 0.2em; }
+
+/* Diagonal slash accent (echoes the autowelt wordmark).
+   Sits inside flex `items-center` headings. height:1.15em makes the bar fill
+   the heading's full line-box (≈ the text height) rather than reading as a
+   short accent next to the bold uppercase caps; 5px width gives it presence. */
+.slash {
+  display: inline-block;
+  width: 5px;
+  height: 1.15em;
+  flex-shrink: 0;
+  background: #d4a017;
+  transform: skewX(-12deg);
+  margin-left: 0.15em;
+  border-radius: 1px;
+}
+
+/* Hide scrollbar for horizontal carousels */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Brand logo marquee scale ──────────────────────────────────────────────
+   Each logo's max-height and horizontal padding are inline px values tuned so
+   every visible mark renders at the same size with even gaps. On phones those
+   tuned-for-desktop sizes leave only ~2–3 logos visible with huge gaps. Rather
+   than re-tune per breakpoint, every logo multiplies its px values by
+   var(--logo-scale); we just shrink that one variable on small screens so the
+   whole, carefully-balanced wall scales down together (more logos in view). */
+.brands-marquee { --logo-scale: 1; }
+@media (max-width: 640px) { .brands-marquee { --logo-scale: 0.56; } }
+@media (min-width: 641px) and (max-width: 1024px) { .brands-marquee { --logo-scale: 0.78; } }
+
+/* Fade-in keyframe used by lightweight (non-Framer) bits */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Leaflet location map (grayscale tiles + yellow anchored pin) ---- */
+.al-map { background: #1A1A1A; }
+.al-map .leaflet-container { background: #1A1A1A; font-family: var(--font-body); }
+/* Grayscale only the map tiles — the pin & label stay colored. */
+.al-map .leaflet-tile-pane { filter: grayscale(1) contrast(1.04); }
+/* Steady yellow glow on the custom pin. */
+.al-pin svg {
+  filter: drop-shadow(0 0 6px rgba(212, 160, 23, 0.55))
+          drop-shadow(0 3px 4px rgba(0, 0, 0, 0.6));
+}
+/* Themed "Auto Lavce" label (to the left of the pin). */
+.al-tip.leaflet-tooltip {
+  background: rgba(15, 15, 15, 0.88);
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  color: #d4a017;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+  border-radius: 0.375rem;
+  padding: 0.2rem 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+/* Hide the default tooltip arrow. */
+.al-tip.leaflet-tooltip-left::before,
+.al-tip.leaflet-tooltip-right::before { display: none; }
+/* Zoom control styled for the dark theme. */
+.al-map .leaflet-bar a {
+  background: rgba(15, 15, 15, 0.85);
+  color: #d4a017;
+  border-color: #2a2a2a;
+}
+.al-map .leaflet-bar a:hover { background: rgba(26, 26, 26, 0.95); }
+
+/* ---- Range sliders (leasing calculators) ---- */
+.range-yellow {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: #2A2A2A;
+  outline: none;
+  cursor: pointer;
+}
+.range-yellow::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #d4a017;
+  border: 3px solid #0f0f0f;
+  box-shadow: 0 0 0 1px #d4a017;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.range-yellow::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+.range-yellow::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #d4a017;
+  border: 3px solid #0f0f0f;
+  box-shadow: 0 0 0 1px #d4a017;
+  cursor: pointer;
+}
