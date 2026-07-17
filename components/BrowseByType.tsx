@@ -15,11 +15,9 @@ const T = {
 type Pick = { img: string; label: string; slug: string };
 
 const PICKS: Pick[] = [
-  { img: "/pick-by-type/bmw-120d.png", label: "BMW 120d", slug: "bmw-120d-2011" },
-  { img: "/pick-by-type/vw-golf-6.png", label: "VW Golf 6", slug: "vw-golf-6-2-0-tdi-2009" },
-  { img: "/pick-by-type/audi-a4.png", label: "Audi A4", slug: "audi-a4-2-0-tdi-2010" },
-  { img: "/pick-by-type/vw-passat-cc.png", label: "VW Passat CC", slug: "vw-passat-cc-2-0-tdi-2011" },
-  { img: "/pick-by-type/vw-touareg.png", label: "VW Touareg", slug: "vw-touareg-4-2-tdi-2012" },
+  { img: "/pick-by-type/bmw-120d.png", label: "BMW 120d", slug: "bmw-f20-120d-2011" },
+  { img: "/pick-by-type/vw-golf-6.png", label: "VW Golf 6", slug: "vw-golf-6-2-0-tdi-2010" },
+  { img: "/pick-by-type/vw-touareg.png", label: "VW Touareg", slug: "vw-touareg-3-0-tdi-2019" },
 ];
 
 export default function BrowseByType() {
@@ -105,7 +103,7 @@ export default function BrowseByType() {
               key={p.slug}
               href={`/avtomobili/${p.slug}`}
               draggable={false}
-              className="group shrink-0 snap-start basis-[calc((100%-24px)/2)] sm:basis-[calc((100%-48px)/3)] lg:basis-[calc((100%-128px)/5)]"
+              className="group shrink-0 snap-start basis-[calc((100%-24px)/2)] sm:basis-[calc((100%-48px)/3)] lg:basis-[calc((100%-64px)/3)]"
             >
               {/* Clean cutout — no card, just the PNG on the dark background */}
               <div className="relative aspect-[5/4] flex items-center justify-center">
