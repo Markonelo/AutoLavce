@@ -7,20 +7,22 @@ import { ArrowUpRight } from "lucide-react";
 import { useLang } from "./LanguageProvider";
 
 /** Seconds of lead-in to skip. Playback starts — and loops back — here.
- *  Set to 1s so the hero begins immediately from the 2nd second (cuts the 1st). */
-const START_AT = 1;
+ *  Set to 4s so the hero begins from the 4th second (cuts the intro). */
+const START_AT = 4;
 
 const T = {
   mk: {
     tagline: "Најпремиум возила во Битола,\nсо гаранција, доверба и врвен квалитет.",
     cta1: "Погледни возила",
-    cta2: "Услуги",
+    cta2: "Изнајми возило",
+    cta3: "Услуги",
     scroll: "Скролај надолу",
   },
   en: {
     tagline: "The most premium vehicles in Bitola",
     cta1: "View cars",
-    cta2: "Services",
+    cta2: "Rent a car",
+    cta3: "Services",
     scroll: "Scroll down",
   },
 };
@@ -237,8 +239,11 @@ export default function Hero() {
             <Link href="/avtomobili" className="btn-primary text-sm md:text-base">
               {t.cta1} <ArrowUpRight size={18} />
             </Link>
-            <Link href="/uslugi" className="btn-outline text-sm md:text-base">
+            <Link href="/kontakt" className="btn-outline text-sm md:text-base">
               {t.cta2}
+            </Link>
+            <Link href="/uslugi" className="btn-outline text-sm md:text-base">
+              {t.cta3}
             </Link>
           </motion.div>
         </motion.div>
