@@ -239,7 +239,7 @@ export default function Hero() {
             <Link href="/avtomobili" className="btn-primary text-sm md:text-base">
               {t.cta1} <ArrowUpRight size={18} />
             </Link>
-            <Link href="/kontakt" className="btn-outline text-sm md:text-base">
+            <Link href="/avtomobili" className="btn-outline text-sm md:text-base">
               {t.cta2}
             </Link>
             <Link href="/uslugi" className="btn-outline text-sm md:text-base">
