@@ -103,7 +103,7 @@ export default function BrowseByType() {
               key={p.slug}
               href={`/avtomobili/${p.slug}`}
               draggable={false}
-              className="group shrink-0 snap-start basis-[calc((100%-24px)/2)] sm:basis-[calc((100%-32px)/2)] lg:basis-[calc((100%-32px)/2)]"
+              className="group shrink-0 snap-start basis-[calc((100%-48px)/3)] lg:basis-[calc((100%-64px)/3)]"
             >
               {/* Clean cutout — no card, just the PNG on the dark background */}
               <div className="relative aspect-[5/4] flex items-center justify-center">
