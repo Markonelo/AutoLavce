@@ -15,7 +15,8 @@ const T = {
 type Pick = { img: string; label: string; slug: string };
 
 const PICKS: Pick[] = [
-  { img: "/pick-by-type/bmw-120d.png", label: "BMW 120d", slug: "bmw-f20-120d-2011" },
+  { img: "/pick-by-type/porsche-cayenne.png", label: "Porsche Cayenne", slug: "porsche-cayenne-3-0-tdi-2012" },
+  { img: "/pick-by-type/audi-q5.png", label: "Audi Q5", slug: "audi-q5-3-0-tdi-quattro-sline-2011-2" },
   { img: "/pick-by-type/vw-golf-6.png", label: "VW Golf 6", slug: "vw-golf-6-2-0-tdi-2010" },
 ];
 
