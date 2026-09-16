@@ -39,8 +39,8 @@ export default function BrowseByType() {
           {PICKS.map((p) => (
             <Link key={p.href} href={p.href} className="group">
               {/* Clean cutout — no card, just the PNG on the dark background.
-                  Inner padding gives each car more breathing room in its cell. */}
-              <div className="relative aspect-[5/4] flex items-center justify-center px-2 sm:px-4">
+                  Fills the cell width; the wide grid gaps keep them spaced out. */}
+              <div className="relative aspect-[5/4] flex items-center justify-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={p.img}
