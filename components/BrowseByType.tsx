@@ -11,12 +11,12 @@ const T = {
 // "Разгледај по тип" — studio cutouts the dealership provided
 // (public/pick-by-type/*.png, transparent RGBA). Each links to its listing,
 // except the BMW (that car is sold) which links to all BMW listings.
-type Pick = { img: string; label: string; href: string };
+type Pick = { img: string; label: string; href: string; flip?: boolean };
 
 const PICKS: Pick[] = [
   { img: "/pick-by-type/porsche-cayenne.png", label: "Porsche Cayenne", href: "/avtomobili/porsche-cayenne-3-0-tdi-2012" },
   { img: "/pick-by-type/audi-q5.png", label: "Audi Q5", href: "/avtomobili/audi-q5-3-0-tdi-quattro-sline-2011-2" },
-  { img: "/pick-by-type/vw-golf-6.png", label: "VW Golf 6", href: "/avtomobili/vw-golf-6-2-0-tdi-2010" },
+  { img: "/pick-by-type/vw-golf-6.png", label: "VW Golf 6", href: "/avtomobili/vw-golf-6-2-0-tdi-2010", flip: true },
   { img: "/pick-by-type/bmw-120d.png", label: "BMW 120d", href: "/avtomobili?make=BMW" },
 ];
 
@@ -35,17 +35,18 @@ export default function BrowseByType() {
         </div>
 
         {/* Static row — all four cutouts across, no scroll/drag animation */}
-        <div className="grid grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-4 gap-8 sm:gap-12 lg:gap-16">
           {PICKS.map((p) => (
             <Link key={p.href} href={p.href} className="group">
-              {/* Clean cutout — no card, just the PNG on the dark background */}
-              <div className="relative aspect-[5/4] flex items-center justify-center">
+              {/* Clean cutout — no card, just the PNG on the dark background.
+                  Inner padding gives each car more breathing room in its cell. */}
+              <div className="relative aspect-[5/4] flex items-center justify-center px-2 sm:px-4">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={p.img}
                   alt={p.label}
                   draggable={false}
-                  className="w-full h-full object-contain drop-shadow-[0_14px_18px_rgba(0,0,0,0.5)]"
+                  className={`w-full h-full object-contain drop-shadow-[0_14px_18px_rgba(0,0,0,0.5)]${p.flip ? " scale-x-[-1]" : ""}`}
                 />
               </div>
               <p className="mt-3.5 text-center font-heading font-bold text-sm sm:text-base md:text-lg uppercase tracking-wide text-gray-light group-hover:text-yellow transition-colors truncate px-1">
