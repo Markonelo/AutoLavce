@@ -54,8 +54,8 @@ function BrandLogo({ name, file, h, pad, invert }: { name: string; file: string;
     <Link
       href={`/avtomobili?make=${encodeURIComponent(name)}`}
       style={{
-        paddingLeft: `calc(${pad}px * var(--logo-scale))`,
-        paddingRight: `calc(${pad}px * var(--logo-scale))`,
+        paddingLeft: `calc((${pad}px + 11px) * var(--logo-scale))`,
+        paddingRight: `calc((${pad}px + 11px) * var(--logo-scale))`,
       }}
       className="group shrink-0 flex items-center justify-center h-12 sm:h-16"
       aria-label={t.vehiclesFrom(name)}
@@ -72,7 +72,8 @@ function BrandLogo({ name, file, h, pad, invert }: { name: string; file: string;
           onError={() => setErrored(true)}
           style={{ maxHeight: `calc(${h}px * var(--logo-scale))` }}
           className={`w-auto object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110${invert ? " invert" : ""}`}
-          loading="lazy"
+          loading="eager"
+          decoding="async"
         />
       )}
     </Link>
