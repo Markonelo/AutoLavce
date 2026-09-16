@@ -46,7 +46,8 @@ export default function BrowseByType() {
                   src={p.img}
                   alt={p.label}
                   draggable={false}
-                  className={`w-full h-full object-contain drop-shadow-[0_14px_18px_rgba(0,0,0,0.5)]${p.flip ? " scale-x-[-1]" : ""}`}
+                  style={p.flip ? { transform: "scaleX(-1)" } : undefined}
+                  className="w-full h-full object-contain drop-shadow-[0_14px_18px_rgba(0,0,0,0.5)]"
                 />
               </div>
               <p className="mt-3.5 text-center font-heading font-bold text-sm sm:text-base md:text-lg uppercase tracking-wide text-gray-light group-hover:text-yellow transition-colors truncate px-1">
