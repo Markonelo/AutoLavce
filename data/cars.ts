@@ -51,6 +51,28 @@ function describe(title: string, origin?: string): string {
 export const cars: Car[] = [
   // ── Inventory synced from @auto_lavce Instagram (newest first). Сите цени „По Договор". ──
   {
+    id: "36",
+    slug: "audi-q3-2-0-tdi-quattro-sline-2016",
+    title: "Audi Q3 2.0 TDI Quattro S-line Автоматик 2016",
+    make: "Audi",
+    model: "Q3",
+    variant: "2.0 TDI Quattro S-line Автоматик",
+    year: 2016,
+    price: 0,
+    fuel: "Дизел",
+    transmission: "Автоматик",
+    bodyType: "Џип",
+    engine: "2.0 TDI",
+    power: 150,
+    drivetrain: "Quattro 4x4",
+    engineCC: 1968,
+    images: imgs("Ddg2dJciBI7", 20),
+    description: describe("Audi Q3 2.0 TDI Quattro S-line Автоматик 2016"),
+    features: [],
+    status: "available",
+    badge: "Ново",
+  },
+  {
     id: "35",
     slug: "skoda-fabia-1-2-2014",
     title: "Škoda Fabia 1.2 Бензин 2014",
@@ -69,7 +91,6 @@ export const cars: Car[] = [
     description: describe("Škoda Fabia 1.2 Бензин 2014"),
     features: [],
     status: "available",
-    badge: "Ново",
   },
   {
     id: "34",
