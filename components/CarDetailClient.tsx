@@ -589,7 +589,7 @@ export default function CarDetailClient({ car, related }: Props) {
                 transition={{ duration: 0.6 }}
               >
                 <SectionHead index="01" title={t.descTitle} />
-                <p className="text-gray-light text-sm md:text-base font-body leading-relaxed">{localizeCarDescription(car.description, lang)}</p>
+                <p className="text-gray-light text-sm md:text-base font-body leading-relaxed whitespace-pre-line">{localizeCarDescription(car.description, lang)}</p>
               </motion.div>
 
               {/* Features */}
