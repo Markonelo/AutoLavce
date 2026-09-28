@@ -42,6 +42,27 @@ function imgs(code: string, count: number): string[] {
 export const cars: Car[] = [
   // ── Inventory synced from @auto_lavce Instagram (newest first). Сите цени „По Договор". ──
   {
+    id: "37",
+    slug: "audi-q3-2-0-tdi-sline-2012",
+    title: "Audi Q3 2.0 TDI S-line 2012",
+    make: "Audi",
+    model: "Q3",
+    variant: "2.0 TDI S-line",
+    year: 2012,
+    price: 0,
+    fuel: "Дизел",
+    transmission: "Рачен",
+    bodyType: "Џип",
+    engine: "2.0 TDI",
+    power: 136,
+    engineCC: 1968,
+    images: imgs("Ddw9E-OiN7w", 20),
+    description: "AUDI Q3 2.0TDI 100kw 2012 година SLINE регистрирана цела година со зелен картон комплетно сервисирана \nМОЖЕ НА 95 РАТИ ДО 50.000€\nПовеќе информаци на 078-889-293",
+    features: [],
+    status: "available",
+    badge: "Ново",
+  },
+  {
     id: "36",
     slug: "audi-q3-2-0-tdi-quattro-sline-2016",
     title: "Audi Q3 2.0 TDI Quattro S-line Автоматик 2016",
@@ -61,7 +82,6 @@ export const cars: Car[] = [
     description: "AUDI Q3 2.0TDI 110kw 2016 година QUATTRO SLINE АВТОМАТИК регистрирана цела година \nМОЖЕ НА 95 РАТИ ДО 50.000€\nПовеќе информаци на 078-889-293",
     features: [],
     status: "available",
-    badge: "Ново",
   },
   {
     id: "35",
@@ -242,7 +262,6 @@ export const cars: Car[] = [
     description: "KIA RIO  1.2i БЕНЗИН 62kw  2012 година увоз од Холандија платено се до регистрација сервисирана \nМОЖЕ НА 95 РАТИ ДО 50.000€\nПовеќе информаци на 078-889-293",
     features: [],
     status: "available",
-    badge: "Ново",
   },
   {
     id: "7",
